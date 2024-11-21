@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+  <head>  
+  <script  src='../static/js/DOM/carpenter.js'></script>     <!-- Change path to the correct location of carpenter.js -->
+  <script>
+  
+	// Initialisation
+  	const init = new  BuildConfig("../static/config/config.json")   <!-- Change path to the correct location of the config json (css libraries -->
+ 
+	window.addEventListener('load', function() {
+		init.loadMetaDescription();
+		init.loadCssStyle();
+		init.loadJsLib();
+		init.loadContent();
+		
+
+	})
+  </script>
+   
+  </head>
+  
+  <body> 
+  </body>
+  
+</html>
