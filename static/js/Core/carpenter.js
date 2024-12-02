@@ -4,9 +4,6 @@
 // DOM modifications : insert/delete elements based on a specific instruction framework (blueprint) //
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
-
-
-
 ////////////////////////////////////////////////////////////
 // Base Class : build items without any predefined logics //
 ////////////////////////////////////////////////////////////
@@ -57,16 +54,23 @@ class Carpenter{
 	}
 	
 	// main method to call
-	buildBlueprint(){
-		for (let i=0;i<this.blueprint.length;i++){
-			let section = this.blueprint[i];
-			let linkage = this.linkChild(this.target,section);
+	buildBlueprint(blueprint=null, target=null){
+		if (blueprint==null){
+			blueprint = this.blueprint;
+		}
+		if (target==null){
+			target = this.target;
+		}
+	
+		for (let i=0;i<blueprint.length;i++){
+			var section = blueprint[i];
+			let linkage = this.linkChild(target,section);
 			if (section.hasOwnProperty("children")){
 				for (let j=0; j<section["children"].length;j++){
 					let child = section["children"][j];
-					this.newBuilds([child], linkage[1]);
+					//this.newBuilds([child], linkage[1]);
 			
-					this.buildBlueprint();
+					this.buildBlueprint([child], linkage[1]);
 				}
 			}
 		}
@@ -120,7 +124,7 @@ class BuildConfig{
 	
 	loadMetaDescription(){
 		
-		// Building blueprint from 
+		// Need to add viewport, charset etc
 		
 		try{
 			let blueprint_desc = []
@@ -201,7 +205,6 @@ class BuildConfig{
 		try{
 	
 			var blueprint_content = this.applyMapping(config["content"], config["mapping_template"], config["mapping_values"]);
-			
 			this.builder.newBuilds(blueprint_content, document.getElementsByTagName('body')[0]);
 			this.builder.buildBlueprint();
 			

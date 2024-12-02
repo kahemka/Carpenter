@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head id="check">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    <!--<script  src='../../static/js/Core/carpenter.js'></script>      local carpenter.js -->
+  <script  src='https://cdn.jsdelivr.net/gh/kahemka/Carpenter/static/js/Core/carpenter.js'></script>  <!-- online carpenter.js -->
+
+  <script>
+  
+    // Initialisation
+    const cfg_path = "../../static/config/Theme_1/config_local.json";  //config file must be local
+    
+      const init = new  BuildConfig(cfg_path);
+   
+    window.addEventListener('load', function() {
+      init.loadMetaDescription();
+      init.loadCssStyle();
+      init.loadJsLib();
+      //init.loadContent();
+  
+  
+    })
+    </script>
+  </head>
+  <body>
+  
+
+    <!-- ======== sidebar-nav start =========== -->
+    <aside class="sidebar-nav-wrapper">
+      <div class="navbar-logo">
+       Kotku
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          
+          <li class="nav-item">
+       
+           
+              <span class="text"><a href="index.html" class="active"> About</a></span>
+            </a>
+          
+          </li>
+          <li class="nav-item nav-item-has-children">
+            <a
+              href="#0"
+              class="collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#ddmenu_0"
+              aria-controls="ddmenu_0"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+           
+              <span class="text">Apps & Services</span>
+            </a>
+            <ul id="ddmenu_0" class="collapse dropdown-nav">
+              <li>
+                <a href="settings.html"> <i class="lni lni-graph"></i><span>S.A.M</span></a>
+              </li>
+              <li>
+                <a href="settings.html"><i class="lni lni-cloud-network"></i><span>APIs</span> </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> <i class="lni lni-network"></i><span>Teaching</span></a>
+              </li>
+            
+              
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item nav-item-has-children">
+            <a
+              href="#0"
+              class="collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#ddmenu_1"
+              aria-controls="ddmenu_1"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+           
+              <span class="text">External links</span>
+            </a>
+            <ul id="ddmenu_1" class="collapse dropdown-nav">
+              <li>
+                <a href="settings.html"><i class="lni lni-discord"></i><span>Discord</span></a>
+              </li>
+              <li>
+                <a href="blank-page.html"><i class="lni lni-github"></i><span>Github</span></a>
+              </li>
+              <li>
+                <a href="blank-page.html"> <i class="lni lni-linkedin"></i><span>LinkedIn</span> </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> <i class="lni lni-instagram-fill"></i><span>Instagram</span> </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> <i class="lni lni-patreon"></i><span>Patreon</span> </a>
+              </li>
+              
+            </ul>
+          </li>
+          <span class="divider"><hr /></span>
+          <li class="nav-item nav-item-has-children">
+            <a
+              href="#0"
+              class="collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#ddmenu_1"
+              aria-controls="ddmenu_1"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+        
+              <span class="text">Authentication</span>
+            </a>
+            <ul id="ddmenu_1" class="collapse dropdown-nav">
+              <li>
+                <a href="signin.html"> <i class="lni lni-unlock"></i><span>Sign In</span> </a>
+              </li>
+              <li>
+                <a href="signup.html">  <i class="lni lni-ticket"></i><span>Sign Up</span> </a>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+      </nav>
+    
+    </aside>
+    <div class="overlay"></div>
+    <!-- ======== sidebar-nav end =========== -->
+
+    <!-- ======== main-wrapper start =========== -->
+    <main class="main-wrapper">
+      <!-- ========== header start ========== -->
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-5 col-md-5 col-6">
+              <div class="header-left d-flex align-items-center">
+                <div class="menu-toggle-btn mr-15">
+                  <button id="menu-toggle" class="main-btn primary-btn btn-hover">
+                    <i class="lni lni-chevron-left me-2"></i>Menu
+                  </button>
+                </div>
+            
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-6">
+              <div class="header-right">
+                
+                <!-- profile start -->
+                <div class="profile-box ml-15">
+                  <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="profile-info">
+                      <div class="info">
+                        <div class="image">
+                          <img src="../../static/images/Theme_1/profile/profile-image.png" alt="" />
+                        </div>
+                        <div>
+                          <h6 class="fw-500">Adam Joe</h6>
+                          <p>Admin</p>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+                    <li>
+                      <div class="author-info flex items-center !p-1">
+                        <div class="image">
+                          <img src="../../static/images/Theme_1/profile/profile-image.png" alt="image">
+                        </div>
+                        <div class="content">
+                          <h4 class="text-sm">Adam Joe</h4>
+                          <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">Email@gmail.com</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#0">
+                        <i class="lni lni-user"></i> View Profile
+                      </a>
+                    </li>
+          
+                    <li>
+                      <a href="#0"> <i class="lni lni-inbox"></i> Messages </a>
+                    </li>
+                    <li>
+                      <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- profile end -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- ========== header end ========== -->
+
+      <!-- ========== section start ========== -->
+           <!-- ========== section end ========== -->
+
+      <!-- ========== footer start =========== -->
+      
+      <!-- ========== footer end =========== -->
+    </main>
+    <!-- ======== main-wrapper end =========== -->
+
+
+  </body>
+</html>
