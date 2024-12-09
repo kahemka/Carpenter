@@ -9,34 +9,34 @@ config = {
 	
     
     
-    "content":[{"item":"aside","attributes":{"class":"sidebar-nav-wrapper"},
+    "content":[{"item":"aside","attributes":{"class":"sidebar-nav-wrapper navtheme"},
 
-                 "children":[{"item":"div","attributes":{"class":"navbar-logo"},"textContent":"Kotku"},
-                             {"item":"nav","attributes":{"class":"sidebar-nav"}, 
+                 "children":[{"item":"div","attributes":{"class":"navbar-logo navtheme"},"textContent":"Kotku"},
+                             {"item":"nav","attributes":{"class":"sidebar-nav navtheme"}, 
 
-                              "children":[{"item":"ul",
-                                           "children":[{"item":"li","attributes":{"class":"nav-item"},
-                                                        "children":[{"item":"span","attributes":{"class":"text"}, 
-                                                                    "children":[{"item":"a","attributes":{"class":"active","href":"#"}, "textContent":"About"}]
+                              "children":[{"item":"ul", "attributes":{"class":"navtheme"},
+                                           "children":[{"item":"li","attributes":{"class":"nav-item navtheme"},
+                                                        "children":[{"item":"span","attributes":{"class":"text navtheme"}, 
+                                                                    "children":[{"item":"a","attributes":{"class":"active navtheme","href":"#"}, "textContent":"About"}]
                                                                      }] 
                                                         },
                                                        
-                                                      {"item":"li","attributes":{"class":"nav-item nav-item-has-children"}, 
+                                                      {"item":"li","attributes":{"class":"nav-item nav-item-has-children navtheme"}, 
                                                        "children":[{"item":"a","attributes":{"href":"#0",
-                                                                                             "class":"collapsed",
+                                                                                             "class":"collapsed navtheme",
                                                                                              "data-bs-toggle":"collapse",
                                                                                              "data-bs-target":"#ddmenu_0",
                                                                                              "aria-controls":"ddmenu_0",
                                                                                              "aria-expanded":"false",
                                                                                              "aria-label":"Toggle navigation"}, 
-                                                                    "children":[{"item":"span","attributes":{"class":"text"},"textContent":"Apps & Services"}
+                                                                    "children":[{"item":"span","attributes":{"class":"text navtheme"},"textContent":"Apps & Services"}
                                                                                ] 
 
                                                                     } ,
-                                                                    {"item":"ul","attributes":{"id":"ddmenu_0","class":"collapse dropdown-nav"}, 
-                                                                    "children":[{"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-graph"}},
+                                                                    {"item":"ul","attributes":{"id":"ddmenu_0","class":"collapse dropdown-nav navtheme"}, 
+                                                                    "children":[{"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-graph navtheme"}},
                                                                                                          {"item":"span","textContent":"S.A.M"}
                                                                                                  
                                                                                                         ] 
@@ -45,27 +45,27 @@ config = {
                                                                                             ] 
                                                                                   },
 
-                                                                                  {"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-cloud-network"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-cloud-network navtheme"}},
                                                                                                          {"item":"span","textContent":"APIs"}
                                                                                                         ] 
                                                                                              }
                                                                                             ] 
                                                                                   },
 
-                                                                                  {"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-network"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-network navtheme"}},
                                                                                                          {"item":"span","textContent":"Teaching"}
                                                                                                         ] 
                                                                                              }
                                                                                             ] 
                                                                                   },
 
-                                                                                  {"item":"li",
-                                                                                  "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                              "children":[{"item":"i","attributes":{"class":"lni lni-cog"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                  "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                              "children":[{"item":"i","attributes":{"class":"lni lni-cog navtheme"}},
                                                                                                           {"item":"span","textContent":"Custom"}
                                                                                                          ] 
                                                                                               }
@@ -78,22 +78,22 @@ config = {
                                                        },
 
 
-                                                       {"item":"li","attributes":{"class":"nav-item nav-item-has-children"}, 
+                                                       {"item":"li","attributes":{"class":"nav-item nav-item-has-children navtheme"}, 
                                                        "children":[{"item":"a","attributes":{"href":"#1",
-                                                                                             "class":"collapsed",
+                                                                                             "class":"collapsed navtheme",
                                                                                              "data-bs-toggle":"collapse",
                                                                                              "data-bs-target":"#ddmenu_1",
                                                                                              "aria-controls":"ddmenu_1",
                                                                                              "aria-expanded":"false",
                                                                                              "aria-label":"Toggle navigation"}, 
-                                                                    "children":[{"item":"span","attributes":{"class":"text"},"textContent":"External links"}
+                                                                    "children":[{"item":"span","attributes":{"class":"text navtheme" },"textContent":"External links"}
                                                                                ] 
 
                                                                     } ,
-                                                                    {"item":"ul","attributes":{"id":"ddmenu_1","class":"collapse dropdown-nav"}, 
-                                                                    "children":[{"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-discord"}},
+                                                                    {"item":"ul","attributes":{"id":"ddmenu_1","class":"collapse dropdown-nav navtheme"}, 
+                                                                    "children":[{"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-discord navtheme"}},
                                                                                                          {"item":"span","textContent":"Discord"}
                                                                                                  
                                                                                                         ] 
@@ -102,35 +102,35 @@ config = {
                                                                                             ] 
                                                                                   },
 
-                                                                                  {"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-github"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-github navtheme"}},
                                                                                                          {"item":"span","textContent":"Github"}
                                                                                                         ] 
                                                                                              }
                                                                                             ] 
                                                                                   },
 
-                                                                                  {"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-linkedin"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-linkedin navtheme"}},
                                                                                                          {"item":"span","textContent":"LinkedIn"}
                                                                                                         ] 
                                                                                              }
                                                                                             ] 
                                                                                   },
-                                                                                  {"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-instagram-fill"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-instagram-fill navtheme"}},
                                                                                                          {"item":"span","textContent":"Instagram"}
                                                                                                         ] 
                                                                                              }
                                                                                             ] 
                                                                                   },
 
-                                                                                  {"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-patreon"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-patreon navtheme"}},
                                                                                                          {"item":"span","textContent":"Patreon"}
                                                                                                         ] 
                                                                                              }
@@ -144,22 +144,22 @@ config = {
                                                        {"item":"span","attributes":{"class":"divider"},"children":[{"item":"hr"}]},
 
 
-                                                       {"item":"li","attributes":{"class":"nav-item nav-item-has-children"}, 
+                                                       {"item":"li","attributes":{"class":"nav-item nav-item-has-children navtheme"}, 
                                                        "children":[{"item":"a","attributes":{"href":"#2",
-                                                                                             "class":"collapsed",
+                                                                                             "class":"collapsed navtheme",
                                                                                              "data-bs-toggle":"collapse",
                                                                                              "data-bs-target":"#ddmenu_2",
                                                                                              "aria-controls":"ddmenu_2",
                                                                                              "aria-expanded":"false",
                                                                                              "aria-label":"Toggle navigation"}, 
-                                                                    "children":[{"item":"span","attributes":{"class":"text"},"textContent":"Shared projects"}
+                                                                    "children":[{"item":"span","attributes":{"class":"text navtheme"},"textContent":"Shared projects"}
                                                                                ] 
 
                                                                     } ,
-                                                                    {"item":"ul","attributes":{"id":"ddmenu_2","class":"collapse dropdown-nav"}, 
-                                                                    "children":[{"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-unlock"}},
+                                                                    {"item":"ul","attributes":{"id":"ddmenu_2","class":"collapse dropdown-nav navtheme"}, 
+                                                                    "children":[{"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-unlock navtheme"}},
                                                                                                          {"item":"span","textContent":"Sign-in"}
                                                                                                  
                                                                                                         ] 
@@ -168,9 +168,9 @@ config = {
                                                                                             ] 
                                                                                   },
 
-                                                                                  {"item":"li",
-                                                                                 "children":[{"item":"a","attributes":{"href":"#"},
-                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-ticket"}},
+                                                                                  {"item":"li", "attributes":{"class":"navtheme"},
+                                                                                 "children":[{"item":"a","attributes":{"href":"#","class":"navtheme"},
+                                                                                             "children":[{"item":"i","attributes":{"class":"lni lni-ticket navtheme"}},
                                                                                                          {"item":"span","textContent":"Sign-up"}
                                                                                                         ] 
                                                                                              }
@@ -200,8 +200,8 @@ config = {
                                                        "children":[{"item":"div","attributes":{"class":"col-lg-5 col-md-5 col-6"}, 
                                                                     "children":[{"item":"div","attributes":{"class":"header-left d-flex align-items-center"},
                                                                                  "children":[{"item":"div","attributes":{"class":"menu-toggle-btn mr-15"},
-                                                                                              "children":[{"item":"button","attributes":{"id":"menu-toggle","class":"main-btn light-btn btn-hover"},
-                                                                                                            "children":[{"item":"i","attributes":{"class":"lni lni-chevron-left me-2"}},
+                                                                                              "children":[{"item":"button","attributes":{"id":"menu-toggle","class":"main-btn light-btn btn-hover navtheme"},
+                                                                                                            "children":[{"item":"i","attributes":{"class":"lni lni-chevron-left me-2 navtheme"}},
                                                                                                                         {"item":"a","textContent":"Menu"}
                                                                                                                        ]                                             
                                                                                                          }
