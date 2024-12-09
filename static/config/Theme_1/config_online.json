@@ -193,7 +193,7 @@ config = {
                             ]
                },
                {"item":"div","attributes":{"class":"overlay"}},
-               {"item":"main","attributes":{"class":"main-wrapper"},
+               {"item":"main","attributes":{"class":"main-wrapper", "id":"main_section"},
                 "children":[{"item":"header","attributes":{"class":"header"},
                              "children":[{"item":"div","attributes":{"class":"container-fluid"},
                                           "children":[{"item":"div","attributes":{"class":"row"},

@@ -11,10 +11,10 @@
 class Carpenter{
 	
 	
-	constructor(blueprint, target, storage={}){                  // formatted instructions (list), html tag where the injection will take place (string), storage ?
+	constructor(blueprint=null, target=null, storage={}){                  // formatted instructions (list), html tag where the injection will take place (string), storage ?
 		
 		this.blueprint = blueprint;                                 // instructions used to build html blocks displayed in the HTML webpage : exemple = {"item":<item>,"attributes":[<att1>,<att2>],"children":[<recursive_ex1>,<recursive_ex2>],"specific_attr1":<>,"specific_attr2":<>} -> <{item}> {specific_attr1}{children} </{item}>
-		this.target = target;                                       // location where the instructions are built (not the idea but the html element)
+		this.target = target;                                       // location where the instructions are built (not the id but the html element)
 		this.storage = storage;                                     // additional storage used for logic (e.g : dropdowns)
 		
 		this.specific_attributes = ["value","text","textContent"];  //
@@ -35,6 +35,7 @@ class Carpenter{
 	}
 	
 	linkChild(target, child){
+	
 		let item = document.createElement(child["item"]);
 		if ("attributes" in child){
 			for (let k in child["attributes"]){
@@ -55,20 +56,22 @@ class Carpenter{
 	
 	// main method to call
 	buildBlueprint(blueprint=null, target=null){
+		
 		if (blueprint==null){
 			blueprint = this.blueprint;
 		}
 		if (target==null){
 			target = this.target;
 		}
-	
+
 		for (let i=0;i<blueprint.length;i++){
 			var section = blueprint[i];
+
 			let linkage = this.linkChild(target,section);
 			if (section.hasOwnProperty("children")){
 				for (let j=0; j<section["children"].length;j++){
 					let child = section["children"][j];
-					//this.newBuilds([child], linkage[1]);
+	
 			
 					this.buildBlueprint([child], linkage[1]);
 				}
@@ -107,18 +110,55 @@ class Carpenter{
 
 class BuildConfig{
 	
-	constructor(path_config){
-		
-		
-		
-		// instruction formatting
-		const blueprint_config = [{"item":"script","attributes":{"src":path_config}}];
-		
-		// instantiation : carpenter
-		this.builder = new Carpenter(blueprint_config,document.getElementsByTagName('head')[0]);
-		
-		this.builder.buildBlueprint();
-		
+	constructor(name_config="config"){
+		this.builder = new Carpenter();
+		if (Array.isArray(name_config)){  // if its an array, the order in name_config list should match the implementation one
+			this.config = {"meta":[],"css":[],"js":[],"content":[]};
+			let meta =[];
+			let css = [];
+			let js = [];
+			let content = [];
+			let anchor = [];
+			
+			
+			for (let i in name_config){
+				
+				let config = window[name_config[i]];
+				
+				if ("meta" in config){
+					meta = meta.concat(config["meta"]);
+				}
+				if ("css" in config){
+					css = css.concat(config["css"]);
+				}
+				if ("js" in config){
+					js = js.concat(config["js"]);
+				}
+				if ("content" in config){
+					
+					content.push(config["content"]);     // no concat , push to execute blocks sequentially but distinct
+ 					if ("content_block_id" in config){            // if content block id is in config
+						anchor.push(config["content_block_id"]);
+					}
+					else{
+				
+						anchor.push(null);
+					}
+				}
+
+			}
+			this.config["meta"] = meta;
+			this.config["css"] = css;
+			this.config["js"] = js;
+			this.config["content"] = content;
+			this.config["anchor"] = anchor;
+		}
+		else{
+			// instantiation : carpenter
+			
+			this.config = window[name_config];
+			
+		}
 	}
 	
 	
@@ -129,18 +169,18 @@ class BuildConfig{
 		try{
 			let blueprint_desc = []
 			// title
-			if ("title" in config["meta"]){
+			if ("title" in this.config["meta"]){
 				blueprint_desc.push({"item":"title","text":config["meta"]["title"]});
 			}
 			
 			// favicon
-			if ("icon" in config["meta"]){
-				blueprint_desc.push({"item":"link","attributes":{"type":"image/png","rel":"icon","href":config["meta"]["icon"]}});
+			if ("icon" in this.config["meta"]){
+				blueprint_desc.push({"item":"link","attributes":{"type":"image/png","rel":"icon","href":this.config["meta"]["icon"]}});
 			}
 			
 			
 			// open graph
-			const open_graph = config["meta"]["og"];
+			const open_graph = this.config["meta"]["og"];
 			
 			for (let i in open_graph){
 				blueprint_desc.push({"item":"meta","attributes":{"property":"og:"+i,"content":open_graph[i]}});
@@ -164,8 +204,8 @@ class BuildConfig{
 		
 		try{
 			let blueprint_css = [];
-			for (let i in config["css"]){
-				blueprint_css.push({"item":"link","attributes":config["css"][i]});
+			for (let i in this.config["css"]){
+				blueprint_css.push({"item":"link","attributes":this.config["css"][i]});
 			}
 			this.builder.newBuilds(blueprint_css, document.getElementsByTagName('head')[0]);
 			this.builder.buildBlueprint();
@@ -184,8 +224,8 @@ class BuildConfig{
 		
 		try{
 			let blueprint_js = [];
-			for (let i in config["js"]){
-				blueprint_js.push({"item":"script","attributes":config["js"][i]})
+			for (let i in this.config["js"]){
+				blueprint_js.push({"item":"script","attributes":this.config["js"][i]})
 			}
 			this.builder.newBuilds(blueprint_js, document.getElementsByTagName('head')[0]);
 			this.builder.buildBlueprint();
@@ -204,9 +244,29 @@ class BuildConfig{
 		
 		try{
 	
-			var blueprint_content = this.applyMapping(config["content"], config["mapping_template"], config["mapping_values"]);
+	
+			// var blueprint_content = this.applyMapping(this.config["content"], this.config["mapping_template"], this.config["mapping_values"]); need to rework templating in Carpenter
+			var blueprint_content = this.config["content"];
+			if ("anchor" in this.config){
+				let anchor = this.config["anchor"];
+			
+				for (let i in anchor){		
+					if(anchor[i]==null){
+						this.builder.newBuilds(blueprint_content[i], document.getElementsByTagName('body')[0]);   // body by default if no anchor
+					}
+					else{
+						this.builder.newBuilds(blueprint_content[i], document.getElementById(anchor[i]));
+					}
+					
+					this.builder.buildBlueprint();
+				}
+
+			}
+			else{
 			this.builder.newBuilds(blueprint_content, document.getElementsByTagName('body')[0]);
 			this.builder.buildBlueprint();
+			}
+			
 			
 		}
 		

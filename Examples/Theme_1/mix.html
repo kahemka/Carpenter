@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head id="check">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+   <script  src='../../static/js/Core/carpenter.js'></script>       <!--local carpenter.js -->
+  <!--<script  src='https://cdn.jsdelivr.net/gh/kahemka/Carpenter/static/js/Core/carpenter.js'></script>   online carpenter.js -->
+
+
+
+  <script src="../../static/config/Theme_1/config_online.json"></script> <!--config (name of the loaded variable to be reused)-->
+  <script src="../../static/config/Theme_1/config_test1.json"></script> <!--config_main_section (name of the loaded variable to be reused)-->
+
+  <script>
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    // Hello !                                                                                  //
+    //                                                                                         //
+    // This webpage is rendered using Carpenter.js                                            // 
+    // For more information about how it works and why it is used to custom websites :       //
+    //                                                                                      //
+    /////////////////////////////////////////////////////////////////////////////////////////
+
+
+  
+      const init = new  BuildConfig(["config","config_main_section"]);
+   
+    window.addEventListener('load', function() {
+      init.loadContent();
+
+
+      init.loadMetaDescription();
+      init.loadCssStyle();
+      init.loadJsLib();
+      
+  
+  
+    })
+    </script>
+  </head>
+  <body id="body_id">
+
+  </body>
+</html>

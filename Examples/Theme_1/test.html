@@ -10,17 +10,13 @@
    <script  src='../../static/js/Core/carpenter.js'></script>       <!--local carpenter.js -->
   <!--<script  src='https://cdn.jsdelivr.net/gh/kahemka/Carpenter/static/js/Core/carpenter.js'></script>   online carpenter.js -->
 
+
+
+  <script src="../../static/config/Theme_1/config_online.json"></script>
   <script>
-  
-    // Initialisation
-    const cfg_path = "../../static/config/Theme_1/config_online.json";  //config file must be local
-    
-      const init = new  BuildConfig(cfg_path);
-   
-    window.addEventListener('load', function() {
+      const init = new  BuildConfig();
+      window.addEventListener('load', function() {
       init.loadContent();
-      console.log(document.getElementById("debug").innerHTML);
-      console.log(config["content"])
       init.loadMetaDescription();
       init.loadCssStyle();
       init.loadJsLib();
