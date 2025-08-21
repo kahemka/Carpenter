@@ -3,11 +3,12 @@ config_page_dashboard = {
   content_block_id: "main_dashboard",
 
   content: [
-    /* KPIs */
+    // KPIs row
     {
       item: "div",
       attributes: { class: "row g-4" },
       children: [
+        // KPI 1
         {
           item: "div",
           attributes: { class: "col-12 col-sm-6 col-xl-3" },
@@ -29,6 +30,7 @@ config_page_dashboard = {
             }
           ]
         },
+        // KPI 2
         {
           item: "div",
           attributes: { class: "col-12 col-sm-6 col-xl-3" },
@@ -50,6 +52,7 @@ config_page_dashboard = {
             }
           ]
         },
+        // KPI 3
         {
           item: "div",
           attributes: { class: "col-12 col-sm-6 col-xl-3" },
@@ -71,6 +74,7 @@ config_page_dashboard = {
             }
           ]
         },
+        // KPI 4
         {
           item: "div",
           attributes: { class: "col-12 col-sm-6 col-xl-3" },
@@ -95,11 +99,12 @@ config_page_dashboard = {
       ]
     },
 
-    /* Chart + table */
+    // Chart + table row
     {
       item: "div",
       attributes: { class: "row g-4 mt-1" },
       children: [
+        // Chart col
         {
           item: "div",
           attributes: { class: "col-12 col-xl-8" },
@@ -114,6 +119,7 @@ config_page_dashboard = {
             }
           ]
         },
+        // Table col
         {
           item: "div",
           attributes: { class: "col-12 col-xl-4" },
@@ -163,5 +169,67 @@ config_page_dashboard = {
         }
       ]
     }
-  ]
+  ],
+
+  // Map dashboard texts (corrigés)
+  mapping_template: {
+    // KPI 1
+    "DB_KPI1_LABEL":   [[0,0,0,0,0], "textContent"],
+    "DB_KPI1_VALUE":   [[0,0,0,0,1], "textContent"],
+    "DB_KPI1_DELTA":   [[0,0,0,0,2], "textContent"],
+
+    // KPI 2
+    "DB_KPI2_LABEL":   [[0,1,0,0,0], "textContent"],
+    "DB_KPI2_VALUE":   [[0,1,0,0,1], "textContent"],
+    "DB_KPI2_DELTA":   [[0,1,0,0,2], "textContent"],
+
+    // KPI 3
+    "DB_KPI3_LABEL":   [[0,2,0,0,0], "textContent"],
+    "DB_KPI3_VALUE":   [[0,2,0,0,1], "textContent"],
+    "DB_KPI3_DELTA":   [[0,2,0,0,2], "textContent"],
+
+    // KPI 4
+    "DB_KPI4_LABEL":   [[0,3,0,0,0], "textContent"],
+    "DB_KPI4_VALUE":   [[0,3,0,0,1], "textContent"],
+    "DB_KPI4_DELTA":   [[0,3,0,0,2], "textContent"],
+
+    // Chart header title
+    "DB_CHART_TITLE":  [[1,0,0,0,0],               "textContent"],
+
+    // Table header + columns (corrigés)
+    "DB_TABLE_TITLE":  [[1,1,0,0,0],               "textContent"],
+    "DB_TABLE_TH_1":   [[1,1,0,1,0,0,0,0,0],       "textContent"], // "Order"
+    "DB_TABLE_TH_2":   [[1,1,0,1,0,0,0,0,1],       "textContent"], // "Customer"
+    "DB_TABLE_TH_3":   [[1,1,0,1,0,0,0,0,2],       "textContent"], // "Total"
+
+    // Footer note
+    "DB_UPDATED_NOTE": [[1,1,0,1,1],               "textContent"]
+  },
+
+  mapping_values: {
+    "DB_KPI1_LABEL":  "Revenue",
+    "DB_KPI1_VALUE":  "—",
+    "DB_KPI1_DELTA":  "+3.2% vs last week",
+
+    "DB_KPI2_LABEL":  "Orders",
+    "DB_KPI2_VALUE":  "—",
+    "DB_KPI2_DELTA":  "+1.1% vs last week",
+
+    "DB_KPI3_LABEL":  "Customers",
+    "DB_KPI3_VALUE":  "—",
+    "DB_KPI3_DELTA":  "-0.4% vs last week",
+
+    "DB_KPI4_LABEL":  "Conversion",
+    "DB_KPI4_VALUE":  "—",
+    "DB_KPI4_DELTA":  "+0.2 pts",
+
+    "DB_CHART_TITLE": "Sales (last 7 days)",
+
+    "DB_TABLE_TITLE": "Recent orders",
+    "DB_TABLE_TH_1":  "Order",
+    "DB_TABLE_TH_2":  "Customer",
+    "DB_TABLE_TH_3":  "Total",
+
+    "DB_UPDATED_NOTE": "Updated just now"
+  }
 };

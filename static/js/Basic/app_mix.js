@@ -162,3 +162,26 @@
     showSection(routeFromHash());
   };
 })();
+
+// Minimal router click fix: force hash-only navigation on sidebar links
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.getElementById("sidebar-nav");
+  if (!sidebar) return;
+
+  sidebar.addEventListener("click", function (e) {
+    const a = e.target.closest("a[data-route]");
+    if (!a) return;
+
+    // Prevent default navigation (which can duplicate file:// URL)
+    e.preventDefault();
+
+    // Always keep only the fragment part (e.g. "#/dashboard")
+    const raw = a.getAttribute("href") || "#/home";
+    const frag = raw.includes("#") ? raw.slice(raw.indexOf("#")) : "#/home";
+
+    // Set the hash; your hashchange listener (ou routeur) fera le reste
+    if (location.hash !== frag) {
+      location.hash = frag;
+    }
+  });
+});

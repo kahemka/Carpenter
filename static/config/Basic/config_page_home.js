@@ -19,11 +19,7 @@ config_page_home = {
                   item: "div",
                   attributes: { class: "card-body" },
                   children: [
-                    {
-                      item: "h1",
-                      attributes: { class: "card-title" },
-                      textContent: "Starter template (Home)"
-                    },
+                    { item: "h1", attributes: { class: "card-title" }, textContent: "Starter template (Home)" },
                     {
                       item: "p",
                       attributes: { class: "text-secondary" },
@@ -43,5 +39,20 @@ config_page_home = {
         }
       ]
     }
-  ]
+  ],
+
+  // Map texts + the button href
+  mapping_template: {
+    "HOME_TITLE":        [[0,0,0,0,0], "textContent"],              // H1
+    "HOME_DESCRIPTION":  [[0,0,0,0,1], "textContent"],              // paragraph
+    "HOME_BUTTON_TEXT":  [[0,0,0,0,2], "textContent"],              // button label
+    "HOME_BUTTON_HREF":  [[0,0,0,0,2], ["attributes","href"]]       // button href
+  },
+
+  mapping_values: {
+    "HOME_TITLE":        "Experimental frontend side-project",
+    "HOME_DESCRIPTION":  "Initially built to display analytics on html pages in a programmatic way so its results can be easily automated, updated or customized, this library is now used as a Document Object Model management structure to help build reusable frontend templates.",
+    "HOME_BUTTON_TEXT":  "See documentation",
+    "HOME_BUTTON_HREF":  "https://github.com/kahemka/Carpenter"
+  }
 };

@@ -12,29 +12,17 @@ config_shell_admin = {
   },
 
   css: [
-    {
-      href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
-      rel: "stylesheet"
-    },
-    {
-      href: "../../static/css/Basic/style_mix.css",
-      rel: "stylesheet"
-    }
+    { href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css", rel: "stylesheet" },
+    { href: "../../static/css/Basic/style_mix.css", rel: "stylesheet" }
   ],
 
   js: [
-    {
-      src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    },
-    {
-      src: "https://cdn.plot.ly/plotly-2.31.1.min.js"
-    },
-    {
-      src: "../../static/js/Basic/app_mix.js"
-    }
+    { src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" },
+    { src: "https://cdn.plot.ly/plotly-2.31.1.min.js" },
+    { src: "../../static/js/Basic/app_mix.js" }
   ],
 
-  /* Layout admin: sidebar + zone principale avec 2 sections (Home/Dashboard) */
+  // Admin layout: sidebar + topbar + 2 sections (main_home / main_dashboard)
   content: [
     {
       item: "div",
@@ -44,7 +32,7 @@ config_shell_admin = {
           item: "div",
           attributes: { class: "row flex-nowrap" },
           children: [
-            /* Sidebar */
+            // Sidebar
             {
               item: "aside",
               attributes: { class: "col-auto col-md-3 col-lg-2 bg-dark text-white min-vh-100 p-0" },
@@ -96,7 +84,7 @@ config_shell_admin = {
               ]
             },
 
-            /* Main area with topbar + 2 anchor sections */
+            // Main area
             {
               item: "div",
               attributes: { class: "col py-0" },
@@ -114,8 +102,6 @@ config_shell_admin = {
                     }
                   ]
                 },
-
-                /* Sections: main_home (visible) / main_dashboard (hidden) */
                 { item: "section", attributes: { id: "main_home", class: "container-fluid py-4" } },
                 { item: "section", attributes: { id: "main_dashboard", class: "container-fluid py-4 d-none" } }
               ]
@@ -124,5 +110,32 @@ config_shell_admin = {
         }
       ]
     }
-  ]
+  ],
+
+  // Map all text nodes and link hrefs in the shell
+  mapping_template: {
+    // Texts
+    "SHELL_SIDEBAR_TITLE":  [[0,0,0,0,0,0],   "textContent"], // "Admin" (corrigé)
+    "SHELL_NAV_HOME_TEXT":  [[0,0,0,0,1,0],   "textContent"], // "Home"
+    "SHELL_NAV_DASH_TEXT":  [[0,0,0,0,1,1],   "textContent"], // "Dashboard"
+    "SHELL_SIDEBAR_FOOTER": [[0,0,0,0,2],     "textContent"], // "© 2025 Admin Demo"
+    "SHELL_TOPBAR_BRAND":   [[0,0,1,0,0,0],   "textContent"], // "Admin Dashboard"
+
+    // Links (href)
+    "SHELL_NAV_HOME_HREF":  [[0,0,0,0,1,0],   ["attributes","href"]],
+    "SHELL_NAV_DASH_HREF":  [[0,0,0,0,1,1],   ["attributes","href"]]
+  },
+
+  mapping_values: {
+    // Text defaults
+    "SHELL_SIDEBAR_TITLE":  "Menu",
+    "SHELL_NAV_HOME_TEXT":  "Intro",
+    "SHELL_NAV_DASH_TEXT":  "Dashboard",
+    "SHELL_SIDEBAR_FOOTER": "© ClientSideAgent",
+    "SHELL_TOPBAR_BRAND":   "Carpenter.js",
+
+    // Links defaults
+    "SHELL_NAV_HOME_HREF":  "#/home",
+    "SHELL_NAV_DASH_HREF":  "#/dashboard"
+  }
 };
