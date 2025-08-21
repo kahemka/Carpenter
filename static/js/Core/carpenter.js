@@ -42,6 +42,18 @@ class Carpenter{
 				item[s_attr] = child[s_attr];
 			}
 		}
+
+		 // === PATCH MINIMAL: force non-async for dynamically injected scripts (unless explicitly set) ===
+		if (child["item"] && child["item"].toLowerCase() === "script") {
+			const hasAttrs = ("attributes" in child) && child.attributes;
+			const hasExplicitAsyncOrDefer = !!(hasAttrs && ("async" in child.attributes || "defer" in child.attributes));
+			if (!hasExplicitAsyncOrDefer) {
+			// Use the property, not the attribute (attribute async="" reste truthy)
+			item.async = false;
+			}
+		}
+		// ===============================================================================================
+
 		target.appendChild(item);
 		return [target,item];
 	}
