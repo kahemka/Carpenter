@@ -18,7 +18,7 @@ config_shell = {
       rel: "stylesheet"
     },
     {
-      href: "./css/main.css",
+      href: "../../static/css/Basic/style.css",
       rel: "stylesheet"
     }
   ],

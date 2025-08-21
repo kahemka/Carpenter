@@ -1,0 +1,30 @@
+/* Sidebar width */
+.sidebar {
+  width: 240px;
+  transition: transform 0.25s ease;
+}
+
+/* Content offset to the right of the sidebar */
+.content {
+  margin-left: 240px;
+  transition: margin-left 0.25s ease;
+}
+
+/* Collapse behavior when body has .sidebar-collapsed */
+body.sidebar-collapsed .sidebar {
+  transform: translateX(-100%);
+}
+body.sidebar-collapsed .content {
+  margin-left: 0;
+}
+
+/* Plotly area height */
+.plotly-holder {
+  width: 100%;
+  min-height: 320px;
+}
+
+/* Minor cosmetics */
+.card {
+  border-radius: 0.5rem;
+}

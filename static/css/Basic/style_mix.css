@@ -1,0 +1,20 @@
+/* Hauteur sensible pour le graphe */
+.plotly-holder {
+  width: 100%;
+  min-height: 320px;
+}
+
+/* Typo KPI */
+#kpi-revenue,
+#kpi-orders,
+#kpi-customers,
+#kpi-conv {
+  font-weight: 700;
+}
+
+/* Coins des cards */
+.card {
+  border-radius: 0.5rem;
+}
+
+/* Sur petits écrans, la sidebar prend toute la largeur (Bootstrap gère les colonnes). */
