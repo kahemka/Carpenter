@@ -59,7 +59,7 @@ It lets you describe UI as data and compose pages by mixing multiple configurati
     init.loadContent();
   });
 </script>
-
+```
     Serve files with a static HTTP server to avoid CORS/content-type surprises:
 
     Python: python -m http.server 8000
@@ -128,12 +128,12 @@ Minimal example:
 ]
 
 This builds:
-
+``
 <div class="container">
   <h1>Hello Carpenter</h1>
   <p>This content is declared as data.</p>
 </div>
-
+``
 Notes:
 
     Use textContent for textual content (preferred). “text” is also supported (useful e.g. for <option> elements where .text is a property).
@@ -141,9 +141,9 @@ Notes:
 
 Mixing multiple configs and anchors
 When you instantiate with an array, e.g.:
-
+``
 const init = new BuildConfig(["config", "config_main_section"]);
-
+``
 Behavior:
 
     meta/css/js: concatenated in that order.
@@ -157,16 +157,16 @@ Example pattern:
 
 Optional templating (applyMapping)
 Carpenter ships an experimental method:
-
+``
 applyMapping(content, template, value)
 
     content: the blueprint array to modify
     template: map of aliases to [path, property]
         path is an array of indexes to locate a node inside nested children
     value: map of alias -> replacement
-
+``
 Example snippet (from config_test1.json):
-
+``
 "mapping_template": {
   "title_1":      [[0,0,1], "textContent"],
   "subtitle_1":   [[0,1,0], "textContent"],
@@ -179,17 +179,17 @@ Example snippet (from config_test1.json):
   "description_1": "Initially built to display analytics...",
   "text_button": "See documentation"
 }
-
+``
 Note: In the current version, applyMapping is not invoked by default (commented inside loadContent). If you need it, either:
 
     call it yourself before loadContent, or
     re-enable it in loadContent for your fork.
 
 Utilities
-
+    ``
     killChildren(targetElement)
         Remove all children from the target element (wrapped in try/catch).
-
+    ``
 Caveats and best practices
 
     Dynamic scripts order:
@@ -207,7 +207,7 @@ Caveats and best practices
         For very large blueprints, consider building into a DocumentFragment then append it once.
 
 API reference (short)
-
+    ``
     new Carpenter(blueprint = null, target = null, storage = {})
         newBuilds(blueprint?, target?, storage?)
         buildBlueprint(blueprint?, target?)
@@ -219,4 +219,4 @@ API reference (short)
         loadJsLib()
         loadContent()
         applyMapping(content, template, value)
-
+    ``
