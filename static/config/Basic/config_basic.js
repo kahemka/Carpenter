@@ -12,7 +12,7 @@ config = {
 							 "children":[{"item":"h1","attributes":{"class":"text-body-emphasis"},"textContent":"Get started with Bootstrap"}, 
 										 {"item":"p","attributes":{"class":"fs-5 col-md-8"}, "textContent":"Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started."},
 										 {"item":"div", "attributes":{"class":"mb-5"}, 
-										  "children":[{"item":"a","attributes":{"class":"btn btn-primary btn-lg px-4", "href":"#"}, "textContent":"Download examples"}  
+										  "children":[{"item":"a","attributes":{"class":"btn btn-primary btn-lg px-4", "href":"https://github.com/kahemka/Carpenter"}, "textContent":"Download examples"}  
 										             ]}
 											]}
 																								]
@@ -25,7 +25,7 @@ config = {
 	
 	"mapping_values":{"title_1":"Carpenter.js" , 
 	                  "subtitle_1":"Experimental frontend side-project", 
-					  "description_1": "Initially built to display analytics on html pages in a programatic way so its results can be easily automated, updated or customized, this library is now used as a Document Object Model management structure to help build reusable frontend templates.",
+					  "description_1": "Initially built to display analytics on html pages in a programmatic way so its results can be easily automated, updated or customized, this library is now used as a Document Object Model management structure to help build reusable frontend templates.",
 					  "text_button":"See documentation"}
 }
 

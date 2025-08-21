@@ -146,11 +146,11 @@ When you instantiate with an array, e.g.:
 const init = new BuildConfig(["config", "config_main_section"]);
 ``
 Behavior:
-    ``
+
     meta/css/js: concatenated in that order.
     content: each config’s content is appended separately, in sequence.
     content_block_id: if present in a config, that content is injected at document.getElementById(content_block_id). If absent, it is injected into <body>.
-    ``
+
 Example pattern:
 
     First config creates layout shell (sidebar, header, main id="main_section").

@@ -1,9 +1,0 @@
-config = {
-	"js":[{"src":"../../static/js/Core/bootstrap.bundle.min.js"},{"src":"../../static/js/Core/moment.min.js"},
-          {"src":"../../static/js/Theme_1/polyfill.js"},{"src":"../../static/js/Theme_1/main.js"}
-         ],
-	"css":[{"href":"../../static/css/Core/bootstrap.min.css","rel":"stylesheet"},
-           {"href":"../../static/css/Theme_1/lineicons.css","rel":"stylesheet"},
-           {"href":"../../static/css/Theme_1/main.css","rel":"stylesheet"},{"href":"../../static/css/Theme_1/materialdesignicons.min.css"},{"href":"../../static/css/Theme_1/morris.css","rel":"stylesheet"}],
-	"meta":{"title":"Theme 1 - Frontend Software", "icon":"https://img.icons8.com/color/48/maintenance.png","og":{"title":"Demo: Theme 1","type":"website","image":"https://imgur.com/0dqdq3ms","description":"Frontend tempplate for webapp and frontend software solutions"}},
-	"data":[]}
