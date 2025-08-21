@@ -187,10 +187,10 @@ Note: In the current version, applyMapping is not invoked by default (commented 
 - re-enable it in loadContent for your fork.
 
 Utilities
-    ``
+
     killChildren(targetElement)
         Remove all children from the target element (wrapped in try/catch).
-    ``
+
 Caveats and best practices
 
     Dynamic scripts order:
