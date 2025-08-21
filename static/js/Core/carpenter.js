@@ -303,23 +303,47 @@ class BuildConfig{
 
 
 	applyMapping(content, template, value){
-		for (let alias in value){
-			let replacement = value[alias];
-			let position = template[alias][0];
-			let target = template[alias][1];
-			var section = content;
 
-			for (let i=0; i<position.length;i++){
-				let p = position[i];
-				if (i==0){
-					section = section[p];
-				}
-				else{
-					section = section["children"][p];
-				}
-			}
-			section[target] = replacement;
+	// Helper: set a nested property by path (creates objects if needed)
+	function setDeep(obj, pathArray, newValue){
+		let ref = obj;
+		for (let i = 0; i < pathArray.length - 1; i++){
+		const k = pathArray[i];
+		if (typeof ref[k] !== "object" || ref[k] === null){
+			ref[k] = {};
 		}
-		return content;
+		ref = ref[k];
+		}
+		ref[pathArray[pathArray.length - 1]] = newValue;
+	}
+
+	for (let alias in value){
+		const replacement = value[alias];
+		const position = template[alias][0];
+		const target    = template[alias][1];
+
+		// Navigate to the target section
+		let section = content;
+		for (let i = 0; i < position.length; i++){
+		const p = position[i];
+		if (i === 0){
+			section = section[p];
+		} else {
+			section = section["children"][p];
+		}
+		}
+
+		// Support nested targets: ["attributes","href"] or "attributes.href"
+		if (Array.isArray(target)){
+		setDeep(section, target, replacement);
+		} else if (typeof target === "string" && target.indexOf(".") >= 0){
+		setDeep(section, target.split("."), replacement);
+		} else {
+		// Backward-compatible: simple property overwrite (e.g. "textContent")
+		section[target] = replacement;
+		}
+	}
+
+	return content;
 	}
 }
