@@ -82,29 +82,29 @@ Supported keys:
 
 Example (simplified):
 
-config = {
-  "meta": {
-    "title": "Theme 1 - Frontend Software",
-    "icon": "https://img.icons8.com/color/48/maintenance.png",
-    "og": {
-      "title": "Demo: Theme 1",
-      "type": "website",
-      "image": "https://imgur.com/0dqdq3ms",
-      "description": "Frontend template..."
+    config = {
+    "meta": {
+        "title": "Theme 1 - Frontend Software",
+        "icon": "https://img.icons8.com/color/48/maintenance.png",
+        "og": {
+        "title": "Demo: Theme 1",
+        "type": "website",
+        "image": "https://imgur.com/0dqdq3ms",
+        "description": "Frontend template..."
+        }
+    },
+    "css": [
+        { "href": "static/css/Core/bootstrap.min.css", "rel": "stylesheet" },
+        { "href": "static/css/Theme_1/main.css", "rel": "stylesheet" }
+    ],
+    "js": [
+        { "src": "static/js/Core/bootstrap.bundle.min.js" },
+        { "src": "static/js/Theme_1/main.js" }
+    ],
+    "content": [
+        { "item": "main", "attributes": { "class":"main-wrapper", "id":"main_section" } }
+    ]
     }
-  },
-  "css": [
-    { "href": "static/css/Core/bootstrap.min.css", "rel": "stylesheet" },
-    { "href": "static/css/Theme_1/main.css", "rel": "stylesheet" }
-  ],
-  "js": [
-    { "src": "static/js/Core/bootstrap.bundle.min.js" },
-    { "src": "static/js/Theme_1/main.js" }
-  ],
-  "content": [
-    { "item": "main", "attributes": { "class":"main-wrapper", "id":"main_section" } }
-  ]
-}
 
 The blueprint DSL (DOM structure)
 A blueprint is an array of node descriptors. Each descriptor:
@@ -116,24 +116,25 @@ A blueprint is an array of node descriptors. Each descriptor:
 
 Minimal example:
 
-[
-  {
-    "item": "div",
-    "attributes": { "class": "container" },
-    "children": [
-      { "item": "h1", "textContent": "Hello Carpenter" },
-      { "item": "p",  "textContent": "This content is declared as data." }
+    [
+    {
+        "item": "div",
+        "attributes": { "class": "container" },
+        "children": [
+        { "item": "h1", "textContent": "Hello Carpenter" },
+        { "item": "p",  "textContent": "This content is declared as data." }
+        ]
+    }
     ]
-  }
-]
+
 
 This builds:
-``
+
 <div class="container">
   <h1>Hello Carpenter</h1>
   <p>This content is declared as data.</p>
 </div>
-``
+
 Notes:
 
     Use textContent for textual content (preferred). “text” is also supported (useful e.g. for <option> elements where .text is a property).
@@ -145,11 +146,11 @@ When you instantiate with an array, e.g.:
 const init = new BuildConfig(["config", "config_main_section"]);
 ``
 Behavior:
-
+    ``
     meta/css/js: concatenated in that order.
     content: each config’s content is appended separately, in sequence.
     content_block_id: if present in a config, that content is injected at document.getElementById(content_block_id). If absent, it is injected into <body>.
-
+    ``
 Example pattern:
 
     First config creates layout shell (sidebar, header, main id="main_section").
@@ -157,33 +158,33 @@ Example pattern:
 
 Optional templating (applyMapping)
 Carpenter ships an experimental method:
-``
-applyMapping(content, template, value)
 
-    content: the blueprint array to modify
-    template: map of aliases to [path, property]
-        path is an array of indexes to locate a node inside nested children
-    value: map of alias -> replacement
-``
+    applyMapping(content, template, value)
+
+        content: the blueprint array to modify
+        template: map of aliases to [path, property]
+            path is an array of indexes to locate a node inside nested children
+        value: map of alias -> replacement
+
 Example snippet (from config_test1.json):
-``
-"mapping_template": {
-  "title_1":      [[0,0,1], "textContent"],
-  "subtitle_1":   [[0,1,0], "textContent"],
-  "description_1":[[0,1,1], "textContent"],
-  "text_button":  [[0,1,2,0], "textContent"]
-},
-"mapping_values": {
-  "title_1": "Carpenter.js",
-  "subtitle_1": "Experimental frontend side-project",
-  "description_1": "Initially built to display analytics...",
-  "text_button": "See documentation"
-}
-``
+
+    "mapping_template": {
+    "title_1":      [[0,0,1], "textContent"],
+    "subtitle_1":   [[0,1,0], "textContent"],
+    "description_1":[[0,1,1], "textContent"],
+    "text_button":  [[0,1,2,0], "textContent"]
+    },
+    "mapping_values": {
+    "title_1": "Carpenter.js",
+    "subtitle_1": "Experimental frontend side-project",
+    "description_1": "Initially built to display analytics...",
+    "text_button": "See documentation"
+    }
+
 Note: In the current version, applyMapping is not invoked by default (commented inside loadContent). If you need it, either:
 
-    call it yourself before loadContent, or
-    re-enable it in loadContent for your fork.
+- call it yourself before loadContent, or
+- re-enable it in loadContent for your fork.
 
 Utilities
     ``
@@ -207,7 +208,7 @@ Caveats and best practices
         For very large blueprints, consider building into a DocumentFragment then append it once.
 
 API reference (short)
-    ``
+    
     new Carpenter(blueprint = null, target = null, storage = {})
         newBuilds(blueprint?, target?, storage?)
         buildBlueprint(blueprint?, target?)
@@ -219,4 +220,4 @@ API reference (short)
         loadJsLib()
         loadContent()
         applyMapping(content, template, value)
-    ``
+    
